@@ -7,7 +7,7 @@ def safe_print_list(my_list=[], x=0):
             print(f"my_list[i]", end=" ")
             total += 1
         except IndexError:
-            pass
+            break
         print()
-        return total
+        return(total)
 
