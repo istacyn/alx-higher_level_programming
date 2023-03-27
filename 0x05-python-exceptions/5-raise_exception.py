@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 
-def raise-exception():
+def raise_exception():
     raise TypeError
