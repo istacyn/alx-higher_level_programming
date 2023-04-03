@@ -2,4 +2,5 @@
 """empty class Rectangle that defines a rectangle"""
 
 class Rectangle:
+    """placeholder for future code"""
     pass
