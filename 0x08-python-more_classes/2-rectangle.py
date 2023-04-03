@@ -3,9 +3,11 @@
 
 
 class Rectangle:
-     """class definition"""
+    """class definition"""
+
     def __init__(self, width=0, height=0):
-        """instatiation with optional width and height parameters"""
+        """instatiation with optional 
+        width and height parameters"""
         self.width = width
         self.height = height
 
@@ -42,7 +44,7 @@ class Rectangle:
     def area(self):
         return (self.__width * self.__height)
 
-    """returns the rectangle perimeter:"""
+    """returns the rectangle perimeter"""
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
             return 0
