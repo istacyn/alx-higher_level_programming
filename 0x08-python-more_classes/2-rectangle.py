@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""class Rectangle that defines a rectangle"""
+
 
 class Rectangle:
-
+     """class definition"""
     def __init__(self, width=0, height=0):
+        """instatiation with optional width and height parameters"""
         self.width = width
         self.height = height
 
