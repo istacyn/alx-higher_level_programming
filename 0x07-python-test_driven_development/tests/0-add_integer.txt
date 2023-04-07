@@ -1,0 +1,116 @@
+"""
+This is a doctest for the ``0-add_integer`` module whose function adds 2 integers or floats
+
+
+Importing function from ``0-add_integer`` module
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Numbers
+============
+
+	>>> add_integer(1, 2)
+	3
+
+	>>> add_integer(100, -2)
+	98
+
+	>>> add_integer(2)
+	100
+
+	>>> add_integer(100.3, -2)
+	98
+
+
+Non-numbers
+=============
+
+	>>> add_integer(4, "School")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+	>>> add_integer("Best", 2)
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+Letters and numbers
+====================
+
+	>>> add_integer('1', 1)
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+	>>> add_integer('2', '1')
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+String
+==============
+
+	>>> add_integer("Best", "School")
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+	>>> add_integer("Hello")
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+Tuple
+============
+
+	>>> add_integer((1, 1))
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+Number and List
+==================
+
+	>>> add_integer(123, [])
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+Float Numbers
+===================
+
+	>>> add_integer(2.9, 2.9)
+	4
+
+Case Overflow
+==============
+
+	>>> add_integer(float('inf'), 0)
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+	>>> add_integer(float("inf"), float('-inf'))
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
+
+
+Case NaN
+===========
+
+	>>> add_integer(0, float('nan'))
+	Traceback (most recent call last):
+        	...
+	TypeError: a must be an integer
