@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-Function that adds two integers
+Function that adds two number(integers or floats)
 """
 
 
 def add_integer(a, b=98):
     """
-    Function that adds two integer numbers
+    Adds two numbers
     that must be an integers or floats
 
     Args:
