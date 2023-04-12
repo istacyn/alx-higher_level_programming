@@ -22,8 +22,8 @@ class Student():
         Args:
         attrs: List of attribute names to retrieve
         """
-        if attrs if None:
-            return self.__dict__
-        else:
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
             return {attr: getattr(self, attr) for attr in attrs
                     if hasattr(self, attr)}
+        return self.__dict__
