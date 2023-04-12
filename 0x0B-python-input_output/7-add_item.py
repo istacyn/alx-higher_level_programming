@@ -9,7 +9,6 @@ if __name-- == "__main__":
     load_from_json_file = \
         __import__('6-load_from_json_file').load_from_json_file
 
-# Load current list from file or create empty list
     try:
         list = load_from_json_file("add_item.json")
     except FileNotFoundError:
