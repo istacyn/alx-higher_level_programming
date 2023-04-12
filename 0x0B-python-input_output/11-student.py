@@ -32,4 +32,4 @@ class Student():
         Replaces all attributes of the Student instance.
         """
         for key, value in json.items():
-            setattr(self, key value)
+            setattr(self, key, value)
