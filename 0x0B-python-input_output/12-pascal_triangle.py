@@ -18,10 +18,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
 
-    # Create first row
     triangle = [[1]]
-
-    # Create remaining rows
     while len(triangle) != n:
         last_row = triangle[-1]
         row = [1]
@@ -29,3 +26,4 @@ def pascal_triangle(n):
             row.append(last_row[i] + last_row[i + 1])
         row.append(1)
         triangle.append(row)
+    return triangle
