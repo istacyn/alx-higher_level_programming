@@ -21,11 +21,11 @@ def pascal_triangle(n):
     # Create first row
     triangle = [[1]]
 
-    # Create reamining rows
-    for i in range(1, n):
+    # Create remaining rows
+    while len(triangle) != n:
+        last_row = triangle[-1]
         row = [1]
-        for j in range(1, i):
-            row.append(triangle[i-1][j-1] + triangle[i-1][j])
+        for i in range(len(last_row) - 1):
+            row.append(last_row[i] + last_row[i + 1])
         row.append(1)
-
         triangle.append(row)
