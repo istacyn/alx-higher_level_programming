@@ -13,6 +13,7 @@ def append_after(filename="", search_string="", new_string=""):
     search_string (str): The string to search for.
     new_string (str): The string to insert.
     """
+    text = ""
     with open(filename) as file:
         for line in file:
             text += line
