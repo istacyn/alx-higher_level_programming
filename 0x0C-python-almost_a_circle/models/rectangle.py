@@ -125,7 +125,7 @@ class Rectangle(Base):
         """Updates attributes of Rectangle class
         with given arguments"""
         # Assign values from variable arguments
-        for a in arg in enumerate(args):
+        for a, arg in enumerate(args):
             if a == 0 and a is not None:
                 self.id = arg
             elif a == 1:
@@ -148,3 +148,8 @@ class Rectangle(Base):
                 self.x = value
             elif key == 'y':
                 self.y = value
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle"""
+        return {'id': self.id, 'width': self.width,
+                'height': self.height, 'x': self.x, 'y': self.y}
