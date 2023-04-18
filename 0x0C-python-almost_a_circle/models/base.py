@@ -49,7 +49,7 @@ class Base:
         if list_objs is None:
             list_objs = []
         list_dicts = [obj.to_dictionary() for obj in list_objs]
-        with open(filename, "w", encoding="utf-8") asi file:
+        with open(filename, "w", encoding="utf-8") as file:
             file.write(cls.to_json_string(list_dicts))
 
     @staticmethod

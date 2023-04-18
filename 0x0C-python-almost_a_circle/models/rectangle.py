@@ -18,7 +18,7 @@ class Rectangle(Base):
         width: The width of the rectangle.
         height: The height of the rectangle.
         x: The x-coordinate of the rectangle.
-        y: The y-coordibate of the rectangle.
+        y: The y-coordinate of the rectangle.
         id: The id of the rectangle.
         """
         self.width = width
