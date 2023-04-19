@@ -78,13 +78,11 @@ class Base:
         """Returns a list of instances"""
         filename = f"{cls.__name__}.json"
         try:
-            with open(filename, "r") as f:
-                data = json.load(f)
-        except IOError as e:
-            print(f"Error loading from file {filename}: {e}")
+            with open(filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(json.file.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
-
-        return [cls.create(**d) for d in data]
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
