@@ -57,15 +57,15 @@ class Square(Rectangle):
                 elif index == 3:
                     self.y = value
         else:
-            for key, value in kwargs.items():
-                if key == 'id':
-                    self.id = value
-                elif key == 'size':
-                    self.size = value
-                elif key == 'x':
-                    self.x = value
-                elif key == 'y':
-                    self.y = value
+            for k, v in kwargs.items():
+                if k == 'id':
+                    self.id = v
+                elif k == 'size':
+                    self.size = v
+                elif k == 'x':
+                    self.x = v
+                elif k == 'y':
+                    self.y = v
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""

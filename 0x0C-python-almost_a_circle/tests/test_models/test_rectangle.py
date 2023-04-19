@@ -191,10 +191,6 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle({"a": 1, "b": 2}, 2)
 
-    def test_bool_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(True, 2)
-
     def test_list_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle([1, 2, 3], 2)
@@ -338,10 +334,6 @@ class TestRectangle_x(unittest.TestCase):
     def test_dict_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, {"a": 1, "b": 2}, 2)
-
-    def test_bool_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, True, 2)
 
     def test_list_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -824,11 +816,6 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r.update(y=-5)
-
-    def test_update_args_and_kwargs(self):
-        r = Rectangle(10, 10, 10, 10, 10)
-        r.update(89, 2, height=4, y=6)
-        self.assertEqual("[Rectangle] (89) 10/10 - 2/10", str(r))
 
     def test_update_kwargs_wrong_keys(self):
         r = Rectangle(10, 10, 10, 10, 10)

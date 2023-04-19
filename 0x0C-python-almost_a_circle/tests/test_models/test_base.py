@@ -94,62 +94,6 @@ class TestBase_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
-class TestBase(unittest.TestCase):
-    def setUp(self):
-        Base._Base__nb_objects = 0
-
-    def test_save_to_file(self):
-
-        # Test save to file one rectangle
-        r = Rectangle(10, 7, 2, 8, 5)
-        Rectangle.save_to_file([r])
-        with open("Rectangle.json", "r") as f:
-            self.assertTrue(len(f.read()) == 53)
-
-        # Test save to file two rectangles
-        r1 = Rectangle(10, 7, 2, 8, 5)
-        r2 = Rectangle(2, 4, 1, 2, 3)
-        Rectangle.save_to_file([r1, r2])
-        with open("Rectangle.json", "r") as f:
-            self.assertTrue(len(f.read()) = 10
-
-
-    def test_create(self):
-        
-        # Test create Rectangle instance
-        r1 = Rectangle(10, 7, 2, 8)
-        r1_dict = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dict)
-        self.assertEqual(str(r1), str(r2))
-
-        # Test create Square instance
-        s1 = Square(5)
-        s1_dict = s1.to_dictionary()
-        s2 = Square.create(**s1_dict)
-        self.assertEqual(str(s1), str(s2))
-
-    def test_load_from_file(self):
-        
-        # Test load Rectangle instances from file
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r1, r2])
-        rectangles = Rectangle.load_from_file()
-        self.assertTrue(isinstance(rectangles, list))
-        self.assertTrue(isinstance(rectangles[0], dict))
-        self.assertEqual(str(r1), str(rectangles[0]))
-        self.assertEqual(str(rectangles[1]), str(r2))
-
-        # Test load Square instances from file
-        s1 = Square(5)
-        s2 = Square(10, 2, 1)
-        Square.save_to_file([s1, s2])
-        squares = Square.load_from_file()
-        self.assertEqual(str(squares[0]), str(r1))
-        self.assertEqual(str(squares[1]), str(r2))
-
-        # Test for load from non-existent file
-        self.assertEqual(Square.load_from_file(), [])
 
 class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
@@ -195,6 +139,8 @@ class TestBase_to_json_string(unittest.TestCase):
     def test_to_json_string_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string([], 1)
+
+
 class TestBase_save_to_file(unittest.TestCase):
     """Unittests for testing save_to_file method of Base class."""
 
