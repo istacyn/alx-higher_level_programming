@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Lists all states from the database"""
+"""Lists all states from the database starting with 'N'"""
 
-import MySQLdb
+import MySQLdb as mysql
 from sys import argv
 
 
@@ -10,7 +10,7 @@ if __name__ == '__main__':
     """
     Access the database and retrieve the list of states starting with N.
     """
-    db = MySQLdb.connect(
+    db = mysql.connect(
         host="localhost", user=argv[1], port=3306, passwd=argv[2],
         database=argv[3])
 
