@@ -5,20 +5,18 @@ import MySQLdb
 from sys import argv
 
 
-"""Access the database and retrieve the list of states"""
-db_connection = MySQLdb.connect(
-    host="localhost",
-    user=argv[1],
-    port=3306,
-    passwd=argv[2]
-    database=argv[3]
-)
+if __name__ == '__main__':
 
-cursor = db_connection.cursor()
+    """Access the database and retrieve the list of states.
+    """
+    db = MySQLdb.connect(
+            host="localhost", user=argv[1], port=3306, passwd=argv[2], database=argv[3])
 
-cursor.execute("SELECT * FROM states")
+    cursor = db_connection.cursor()
 
-result = cursor.fetchall()
+    cursor.execute("SELECT * FROM states")
 
-for row in result:
-    print(row)
+    rows = cursor.fetchall()
+
+    for row in rows:
+        print(row)
