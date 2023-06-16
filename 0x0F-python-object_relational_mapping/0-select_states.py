@@ -10,9 +10,10 @@ if __name__ == '__main__':
     """Access the database and retrieve the list of states.
     """
     db = MySQLdb.connect(
-            host="localhost", user=argv[1], port=3306, passwd=argv[2], database=argv[3])
+        host="localhost", user=argv[1], port=3306, passwd=argv[2],
+        database=argv[3])
 
-    cursor = db_connection.cursor()
+    cursor = db.cursor()
 
     cursor.execute("SELECT * FROM states")
 
