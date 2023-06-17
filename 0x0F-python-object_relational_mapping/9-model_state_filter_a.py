@@ -20,9 +20,9 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.name.like('%a%'))
+    states = session.query(State).filter(State.name.contains('a'))
 
-    if state is not None:
+    if states is not None:
         for state in states:
             print("{}: {}".format(state.id, first_state.name))
 
