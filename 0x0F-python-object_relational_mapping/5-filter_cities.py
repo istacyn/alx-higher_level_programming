@@ -11,23 +11,28 @@ from sys import argv
 if __name__ == '__main__':
 
     """
-    Access the database and retrieve the list of cities.
+    Access the database and retrieve the cities of a particular state.
     """
     db = mysql.connect(host="localhost", port=3306,
                        user=argv[1], passwd=argv[2], database=argv[3])
 
     with db.cursor() as cursor:
         cursor.execute("""
-            SELECT cities.id, cities.name
-            FROM cities
-            JOIN states
-            ON cities.state_id = states.id
-            WHERE states.name LIKE BINARY %(state_name)s
-            ORDER BY cities.id ASC
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
         """, {
             'state_name:': argv[4]
         })
-
         rows = cursor.fetchall()
 
     if rows is not None:
