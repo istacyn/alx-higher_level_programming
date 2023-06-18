@@ -17,13 +17,14 @@ if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(argv[1], argv[2], argv[3]))
 
+    Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    cities = session.query(City, State).join(State)
+    cities = session.query(City).join(State)
 
-    for city, state in cities.all():
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+    for city in cities():
+        print("{}: ({}) {}".format(city.state.name, city.id, city.name))
 
-    session.commit()
     session.close()
