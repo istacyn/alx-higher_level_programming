@@ -24,8 +24,8 @@ const getCharacters = (index) => {
 
   request(characters[index], (error, response, body) => {
     if (error) {
-    console.log(error);
-    return;
+      console.log(error);
+      return;
   }
   const characterData = JSON.parse(body);
   console.log(characterData.name);
