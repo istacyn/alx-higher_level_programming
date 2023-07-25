@@ -9,15 +9,15 @@ request.get(url, { json: true }, (error, response, body) => {
       return;
   }
 
-	const completedTasks = {};
-	body.forEach((task) => {
-          if (task.completed) {
-            if (!completedTasks[task.userId]) {
-              completedTasks[task.userId] = 1;
-	    } else {
-	      completedTasks[task.userId] += 1;
-	    }
-	  }
-	});
-	console.log(completedTasks)
+  const completedTasks = {};
+  body.forEach((task) => {
+    if (task.completed) {
+      if (!completedTasks[task.userId]) {
+        completedTasks[task.userId] = 1;
+      } else {
+        completedTasks[task.userId] += 1;
+      }
+    }
+  });
+  console.log(completedTasks)
 });
