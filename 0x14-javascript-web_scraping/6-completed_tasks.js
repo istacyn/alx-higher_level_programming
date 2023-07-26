@@ -3,21 +3,21 @@
 const request = require('request');
 const url = process.argv[2];
 
-request.get(url, { json: true }, (error, response, body) => {
-  if (error) {
-    console.log(error);
-      return;
-  }
-
-  const completedTasks = {};
-  body.forEach((task) => {
-    if (task.completed) {
-      if (!completedTasks[task.userId]) {
-        completedTasks[task.userId] = 1;
-      } else {
-        completedTasks[task.userId] += 1;
+request(url, (error, response, body) => {
+  if (error) console.error(error);
+  if (response && response.statusCode === 200) {
+    const tasks = JSON.parse(body);
+    const completedTasks = {};
+  
+    for (const task of tasks) {
+      if (task.completed === true) {
+        if (completedTasks[task.userId] === undefined) {
+          completedTasks[task.userId] = 1;
+        } else {
+          completedTasks[task.userId] += 1;
+        }
       }
     }
-  });
-  console.log(completedTasks)
+    console.log(completedTasks)
+  }
 });
