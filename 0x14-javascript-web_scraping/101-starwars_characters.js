@@ -26,9 +26,9 @@ const getCharacters = (index) => {
     if (error) {
       console.log(error);
       return;
-  }
-  const characterData = JSON.parse(body);
-  console.log(characterData.name);
-  getCharacters(index + 1);
+    }
+    const characterData = JSON.parse(body);
+    console.log(characterData.name);
+    getCharacters(index + 1);
   });
 };
